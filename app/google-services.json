@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "439212968538",
+    "firebase_url": "https://sari-bulan-default-rtdb.firebaseio.com",
+    "project_id": "sari-bulan",
+    "storage_bucket": "sari-bulan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439212968538:android:660f6184df4167b3532663",
+        "android_client_info": {
+          "package_name": "com.example.saribulantech"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439212968538-3lmbphjc5p37tpnp1crp6qhdsppr8rme.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGwRSAoY25x8glWHDUB26X18Ze24it_o8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439212968538-3lmbphjc5p37tpnp1crp6qhdsppr8rme.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
