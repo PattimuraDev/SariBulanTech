@@ -8,37 +8,48 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SariBulanTech">
+        android:theme="@style/Theme.SariBulanTech"
+        android:fullBackupContent="true">
         <activity
             android:name=".MainMenu"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".HapusDataInventory"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".LihatDataInventory"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".MenuBahan"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".MenuInventory"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".MenuTransaksi"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".TambahDataBahan"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".TambahDataInventory"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".UpdateDataInventory"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".Login"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
