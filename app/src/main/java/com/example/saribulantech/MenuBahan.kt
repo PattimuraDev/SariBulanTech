@@ -26,5 +26,9 @@ class MenuBahan : AppCompatActivity() {
             val intent = Intent(this, HapusDataBahan::class.java)
             startActivity(intent)
         }
+        lihatDataBahan.setOnClickListener {
+            val intent = Intent(this, LihatDataBahan::class.java)
+            startActivity(intent)
+        }
     }
 }

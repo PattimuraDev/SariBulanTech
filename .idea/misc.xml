@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/layout/activity_hai.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_hapusdata_bahan.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/activity_lihat_data_bahan.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_lihat_data_inventory.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_tambah_data_bahan.xml" value="0.33" />

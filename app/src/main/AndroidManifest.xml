@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SariBulanTech">
         <activity
+            android:name=".LihatDataBahan"
+            android:exported="false" />
+        <activity
             android:name=".HapusDataBahan"
             android:exported="false" />
         <activity
