@@ -22,5 +22,9 @@ class MenuBahan : AppCompatActivity() {
             val intent = Intent(this, UpdateDataBahan::class.java)
             startActivity(intent)
         }
+        hapusdataBahan.setOnClickListener {
+            val intent = Intent(this, HapusDataBahan::class.java)
+            startActivity(intent)
+        }
     }
 }

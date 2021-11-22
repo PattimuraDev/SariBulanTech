@@ -13,24 +13,24 @@ class HapusDataInventory : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hapus_data_inventory)
-        val btnDeletDataInventory = findViewById<Button>(R.id.buttonDeleteDatainventory)
-        val inputDeleteNamaInventory = findViewById<EditText>(R.id.inputDeleteNamaInventory)
-        btnDeletDataInventory.setOnClickListener {
-            if(inputDeleteNamaInventory.text.toString().isNotEmpty()){
-                deleteinventory(inputDeleteNamaInventory.text.toString())
+        val btnHapusDataInventory = findViewById<Button>(R.id.buttonHapusDatainventory)
+        val inputHapusNamaInventory = findViewById<EditText>(R.id.inputHapusNamaInventory)
+        btnHapusDataInventory.setOnClickListener {
+            if(inputHapusNamaInventory.text.toString().isNotEmpty()){
+                hapusInventory(inputHapusNamaInventory.text.toString())
             }else{
                 Toast.makeText(this, "Nama inventory harus ada", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun deleteinventory(namaInventory: String) {
+    private fun hapusInventory(namaInventory: String) {
         database = FirebaseDatabase.getInstance().getReference("INVENTORY")
         database.get().addOnSuccessListener {
             if(it.exists()){
                 if(it.hasChild(namaInventory)){
                     database.child(namaInventory).removeValue().addOnSuccessListener {
-                        val inputDeleteNamaInventory = findViewById<EditText>(R.id.inputDeleteNamaInventory)
+                        val inputDeleteNamaInventory = findViewById<EditText>(R.id.inputHapusNamaInventory)
                         inputDeleteNamaInventory.text.clear()
                         Toast.makeText(this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
                     }.addOnFailureListener {

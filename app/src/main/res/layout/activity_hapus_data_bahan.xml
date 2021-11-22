@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HapusDataInventory">
+    tools:context=".HapusDataBahan">
     <LinearLayout
-        android:id="@+id/LinearLayout4"
+        android:id="@+id/LinearLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -15,20 +15,20 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama inventory: "
+            android:text="Nama bahan: "
             android:textSize="10pt"
             android:textStyle="bold"/>
 
         <EditText
-            android:id="@+id/inputHapusNamaInventory"
+            android:id="@+id/inputHapusNamaBahan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="10pt"
             android:inputType="text"
-            android:hint="Input nama inventory"/>
+            android:hint="Input nama bahan"/>
     </LinearLayout>
     <Button
-        android:id="@+id/buttonHapusDatainventory"
+        android:id="@+id/buttonHapusDataBahan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
@@ -36,5 +36,5 @@
         android:backgroundTint="@color/button_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LinearLayout4" />
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout6" />
 </androidx.constraintlayout.widget.ConstraintLayout>
