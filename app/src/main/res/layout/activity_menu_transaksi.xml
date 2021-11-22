@@ -4,50 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuInventory">
+    tools:context=".MenuTransaksi">
 
     <TextView
-        android:id="@+id/TambahDataInventory"
+        android:id="@+id/TambahDataTransaksi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="> Tambah Data"
-        android:textColor="@color/black"
-        android:textSize="12pt"
         android:layout_marginHorizontal="16dp"
+        android:text="> Tambah data transaksi"
+        android:textSize="12pt"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/UpdateDataInventory"
-        android:textColor="@color/black"
-        android:layout_marginHorizontal="16dp"
+        android:id="@+id/UpdateDataTransaksi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="> Update Data"
+        android:layout_marginHorizontal="16dp"
         android:textSize="12pt"
+        android:text="> Update data transaksi"
+        app:layout_constraintTop_toBottomOf="@+id/TambahDataTransaksi"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@+id/TambahDataInventory" />
+        android:textColor="@color/black"/>
     <TextView
-        android:id="@+id/LihatDataInventory"
-        android:textColor="@color/black"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginTop="16dp"
+        android:id="@+id/LihatDataTransaksi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="> Lihat data"
-        android:textStyle="bold"
+        android:layout_marginHorizontal="16dp"
         android:textSize="12pt"
-        app:layout_constraintTop_toBottomOf="@id/UpdateDataInventory"/>
+        android:text="> Lihat data transaksi"
+        app:layout_constraintTop_toBottomOf="@+id/UpdateDataTransaksi"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
     <TextView
-        android:id="@+id/HapusDataInventory"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/black"
+        android:id="@+id/HapusDataTransaksi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="> Hapus data"
         android:layout_marginHorizontal="16dp"
         android:textSize="12pt"
+        android:text="> Hapus data transaksi"
+        app:layout_constraintTop_toBottomOf="@+id/LihatDataTransaksi"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/LihatDataInventory"/>
+        android:textColor="@color/black"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
