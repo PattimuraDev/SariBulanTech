@@ -14,9 +14,11 @@ class UpdateDataInventory : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_data_inventory)
+
         val btnUpdateDataInventory = findViewById<Button>(R.id.buttonUpdateDatainventory)
         val inputUpdateNamaInventory = findViewById<EditText>(R.id.inputUpdateNamaInventory)
         val inputUpdatejumlahInventory = findViewById<EditText>(R.id.inputUpdateJumlahInventory)
+
         btnUpdateDataInventory.setOnClickListener {
             if(inputUpdateNamaInventory.text.toString().isNotEmpty() && inputUpdatejumlahInventory.text.toString().isNotEmpty()){
 

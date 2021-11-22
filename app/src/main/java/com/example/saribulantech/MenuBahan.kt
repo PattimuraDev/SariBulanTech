@@ -10,12 +10,16 @@ class MenuBahan : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_bahan)
         val tambahDataBahan = findViewById<TextView>(R.id.TambahDataBahan)
-        val UpdateDataBahan = findViewById<TextView>(R.id.UpdateDataBahan)
-        val LihatDataBahan = findViewById<TextView>(R.id.LihatDataBahan)
-        val HapusdataBahan = findViewById<TextView>(R.id.HapusDataBahan)
+        val updateDataBahan = findViewById<TextView>(R.id.UpdateDataBahan)
+        val lihatDataBahan = findViewById<TextView>(R.id.LihatDataBahan)
+        val hapusdataBahan = findViewById<TextView>(R.id.HapusDataBahan)
 
         tambahDataBahan.setOnClickListener {
             val intent = Intent(this, TambahDataBahan::class.java)
+            startActivity(intent)
+        }
+        updateDataBahan.setOnClickListener {
+            val intent = Intent(this, UpdateDataBahan::class.java)
             startActivity(intent)
         }
     }

@@ -7,6 +7,7 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_tambah_data_bahan.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_tambahdata_inventory.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_update_data_bahan.xml" value="0.1" />
       </map>
     </option>
   </component>
