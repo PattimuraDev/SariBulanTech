@@ -41,7 +41,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/inputTambahJumlahInventory"
+            android:id="@+id/inputTambahJumlahBahan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Input jumlah bahan"
