@@ -20,7 +20,11 @@ class UpdateDataBahan : AppCompatActivity() {
 
         btnUpdateDataBahan.setOnClickListener {
             if(inputUpdateNamaBahan.text.toString().isNotEmpty() && inputUpdateJumlahBahan.text.toString().isNotEmpty()){
-                updateDataBahan(inputUpdateNamaBahan.text.toString(), inputUpdateJumlahBahan.text.toString())
+                if(inputUpdateJumlahBahan.text.toString().toInt() < 0){
+                    Toast.makeText(this, "Jumlah tidak boleh negatif", Toast.LENGTH_SHORT).show()
+                }else{
+                    updateDataBahan(inputUpdateNamaBahan.text.toString(), inputUpdateJumlahBahan.text.toString())
+                }
             }else{
                 Toast.makeText(this, "Nama bahan dan jumlah harus ada", Toast.LENGTH_SHORT).show()
             }
@@ -40,7 +44,7 @@ class UpdateDataBahan : AppCompatActivity() {
                     database.child(nama).updateChildren(bahanUpdate).addOnSuccessListener {
                         findViewById<EditText>(R.id.inputUpdateNamaBahan).text.clear()
                         findViewById<EditText>(R.id.inputUpdateJumlahBahan).text.clear()
-                        Toast.makeText(this, "Bahan $nama berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Bahan $nama berhasil diupdate", Toast.LENGTH_SHORT).show()
                     }.addOnFailureListener {
                         Toast.makeText(this, "Update gagal", Toast.LENGTH_SHORT).show()
                     }

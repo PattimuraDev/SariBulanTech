@@ -31,6 +31,4 @@ class LihatDataInventory : AppCompatActivity() {
         database.addValueEventListener(getData)
         database.addListenerForSingleValueEvent(getData)
     }
-
-
 }

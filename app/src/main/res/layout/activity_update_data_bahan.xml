@@ -36,7 +36,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jumlah : "
+            android:text="Jumlah(kg): "
             android:textSize="10pt"
             android:textStyle="bold" />
 

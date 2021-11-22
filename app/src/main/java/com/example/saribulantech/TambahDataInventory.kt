@@ -19,14 +19,18 @@ class TambahDataInventory : AppCompatActivity() {
         val btnTambahdataInventory = findViewById<Button>(R.id.buttonTambahDatainventory)
         btnTambahdataInventory.setOnClickListener {
             if(inputTambahJumlahInventory.text.toString().isNotEmpty() && inputTambahNamaInventory.text.toString().isNotEmpty()){
-                database = FirebaseDatabase.getInstance().getReference("INVENTORY")
-                val inventory = Inventory(inputTambahNamaInventory.text.toString(), inputTambahJumlahInventory.text.toString())
-                database.child(inputTambahNamaInventory.text.toString()).setValue(inventory).addOnSuccessListener {
-                    inputTambahJumlahInventory.text.clear()
-                    inputTambahNamaInventory.text.clear()
-                    Toast.makeText(this, "Berhasil disimpan", Toast.LENGTH_SHORT).show()
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Gagal disimpan", Toast.LENGTH_SHORT).show()
+                if(inputTambahJumlahInventory.text.toString().toInt() < 0){
+                    Toast.makeText(this, "Jumlah tidak boleh negatif", Toast.LENGTH_SHORT).show()
+                }else{
+                    database = FirebaseDatabase.getInstance().getReference("INVENTORY")
+                    val inventory = Inventory(inputTambahNamaInventory.text.toString(), inputTambahJumlahInventory.text.toString())
+                    database.child(inputTambahNamaInventory.text.toString()).setValue(inventory).addOnSuccessListener {
+                        inputTambahJumlahInventory.text.clear()
+                        inputTambahNamaInventory.text.clear()
+                        Toast.makeText(this, "Inventory berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+                    }.addOnFailureListener {
+                        Toast.makeText(this, "Gagal disimpan", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }else{
                 Toast.makeText(this, "Nama dan jumlah inventory harus ada!", Toast.LENGTH_SHORT).show()

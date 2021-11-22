@@ -20,14 +20,18 @@ class TambahDataBahan : AppCompatActivity() {
 
         btnTambahDataBahan.setOnClickListener {
             if(inputTambahNamaBahan.text.toString().isNotEmpty() && inputTambahJumlahBahan.text.toString().isNotEmpty()){
-                val bahan = Bahan(inputTambahNamaBahan.text.toString(), inputTambahJumlahBahan.text.toString())
-                database = FirebaseDatabase.getInstance().getReference("BAHAN")
-                database.child(inputTambahNamaBahan.text.toString()).setValue(bahan).addOnSuccessListener {
-                    inputTambahNamaBahan.text.clear()
-                    inputTambahJumlahBahan.text.clear()
-                    Toast.makeText(this, "Data bahan berhasil ditambahkan", Toast.LENGTH_SHORT).show()
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Gagal disimpan", Toast.LENGTH_SHORT).show()
+                if(inputTambahJumlahBahan.text.toString().toInt() < 0){
+                    Toast.makeText(this, "Jumlah tidak boleh negatif", Toast.LENGTH_SHORT).show()
+                }else{
+                    val bahan = Bahan(inputTambahNamaBahan.text.toString(), inputTambahJumlahBahan.text.toString())
+                    database = FirebaseDatabase.getInstance().getReference("BAHAN")
+                    database.child(inputTambahNamaBahan.text.toString()).setValue(bahan).addOnSuccessListener {
+                        inputTambahNamaBahan.text.clear()
+                        inputTambahJumlahBahan.text.clear()
+                        Toast.makeText(this, "Bahan berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+                    }.addOnFailureListener {
+                        Toast.makeText(this, "Gagal disimpan", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }else{
                 Toast.makeText(this, "Nama dan jumlah bahan harus ada", Toast.LENGTH_SHORT).show()

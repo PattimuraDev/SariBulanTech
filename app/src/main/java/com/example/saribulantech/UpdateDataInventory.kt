@@ -21,9 +21,11 @@ class UpdateDataInventory : AppCompatActivity() {
 
         btnUpdateDataInventory.setOnClickListener {
             if(inputUpdateNamaInventory.text.toString().isNotEmpty() && inputUpdatejumlahInventory.text.toString().isNotEmpty()){
-
-                updateDataInventory(inputUpdateNamaInventory.text.toString(), inputUpdatejumlahInventory.text.toString())
-
+                if(inputUpdatejumlahInventory.text.toString().toInt() < 0){
+                    Toast.makeText(this, "jumlah tidak boleh negatif", Toast.LENGTH_SHORT).show()
+                }else{
+                    updateDataInventory(inputUpdateNamaInventory.text.toString(), inputUpdatejumlahInventory.text.toString())
+                }
             }else{
                 Toast.makeText(this, "Nama dan jumlah inventory harus ada!", Toast.LENGTH_SHORT).show()
             }
