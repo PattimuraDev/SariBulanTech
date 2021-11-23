@@ -16,8 +16,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="36dp"
+            android:fontFamily="@font/sui_generis"
             android:text="Saribulan.tech"
+            android:textColor="@color/black"
             android:textSize="12pt"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,13 +27,13 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="80dp"
+            android:layout_height="70dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logo" />
+            app:srcCompat="@drawable/logonofont" />
 
         <TextView
             android:id="@+id/textView4"
@@ -60,7 +62,7 @@
                 android:layout_width="90dp"
                 android:layout_height="90dp"
                 android:layout_marginHorizontal="10dp"
-                android:src="@drawable/transaction"/>
+                android:src="@drawable/transactionPNG"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
@@ -83,7 +85,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="10dp"
                 android:padding="15dp"
-                android:src="@drawable/inventory" />
+                android:src="@drawable/inventoryPNG" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
@@ -106,7 +108,7 @@
                 android:layout_height="90dp"
                 android:layout_marginHorizontal="10dp"
                 android:padding="15dp"
-                android:src="@drawable/ingredients" />
+                android:src="@drawable/ingredientsPNG" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
