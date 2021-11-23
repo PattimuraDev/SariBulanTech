@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LihatDataTransaksi">
-
-    <TextView
-        android:id="@+id/TextView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="DATA TRANSAKSI"
-        android:textSize="14pt"
-        android:layout_marginVertical="16dp"
-        android:gravity="center_horizontal"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DATA TRANSAKSI"
+            android:textSize="14pt"
+            android:layout_marginVertical="16dp"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/tvResultDataTransaksi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintTop_toBottomOf="@+id/TextView"
-        android:textSize="10pt"/>
+        <TextView
+            android:id="@+id/tvResultDataTransaksi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintTop_toBottomOf="@+id/TextView"
+            android:textSize="10pt"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

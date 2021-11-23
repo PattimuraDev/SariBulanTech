@@ -8,6 +8,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.lang.StringBuilder
+import java.util.*
 
 class LihatDataTransaksi : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,6 +16,9 @@ class LihatDataTransaksi : AppCompatActivity() {
         setContentView(R.layout.activity_lihat_data_transaksi)
 
         val database = FirebaseDatabase.getInstance().reference
+        val calendar = Calendar.getInstance()
+        val nameOfMonth = arrayOf("Januari", "Februari", "Maret", "April", "Mei", "Juni",
+        "Juli", "Agustus", "September", "Oktober", "November", "Desember")
 
         val getDataTransaksi = object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
@@ -23,17 +27,32 @@ class LihatDataTransaksi : AppCompatActivity() {
 
             override fun onDataChange(snapshot: DataSnapshot) {
                 val result = StringBuilder()
+                var year = calendar.get(Calendar.YEAR).toString().toInt()
                 for (i in snapshot.child("TRANSAKSI").children) {
-                    val namaPemesan = i.child("Nama pemesan").value
-                    val tanggalPemesanan = i.child("Tanggal pesanan").value
-                    val alamat = i.child("Alamat pengiriman").value
-                    val nominalTransaksi = i.child("Nominal transaksi").value
-                    val notes = i.child("Notes").value
-                    result.append("Nama pemesan : $namaPemesan\n" +
-                            "Tanggal pemesanan : $tanggalPemesanan\n" +
-                            "Alamat : $alamat\n" +
-                            "Nominal transaksi : $nominalTransaksi\n" +
-                            "Notes : $notes\n\n")
+                    while(year >= 2000){
+                        if(snapshot.child("TRANSAKSI").hasChild(year.toString())){
+                            for(j in 11 downTo 0){
+                                if(i.hasChild(nameOfMonth[j])){
+                                    val bulanRef = i.child(nameOfMonth[j])
+                                    val bulan = bulanRef.child("Bulan").value
+                                    val namaPemesan = bulanRef.child("Nama pemesan").value
+                                    val tanggalPemesanan = bulanRef.child("Tanggal pesanan").value
+                                    val alamat = bulanRef.child("Alamat pengiriman").value
+                                    val nominalTransaksi = bulanRef.child("Nominal transaksi").value
+                                    val notes = bulanRef.child("Notes").value
+                                    result.append("Tahun : $year\n" +
+                                            "Bulan : $bulan\n" +
+                                            "Nama pemesan : $namaPemesan\n" +
+                                            "Tanggal pemesanan : $tanggalPemesanan\n" +
+                                            "Alamat : $alamat\n" +
+                                            "Nominal transaksi : $nominalTransaksi\n" +
+                                            "Notes : $notes\n\n")
+                                }
+                            }
+                        }
+                        year--
+                    }
+
                 }
                 val tvResult = findViewById<TextView>(R.id.tvResultDataTransaksi)
                 tvResult.text = result

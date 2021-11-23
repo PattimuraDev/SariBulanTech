@@ -3,34 +3,46 @@ package com.example.saribulantech
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
 import java.lang.StringBuilder
 
 class LihatDataBahan : AppCompatActivity() {
+    private lateinit var dbref : DatabaseReference
+    private lateinit var bahanRecyclerView : RecyclerView
+    private lateinit var bahanArrayList : ArrayList<Bahan>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lihat_data_bahan)
-        val database = FirebaseDatabase.getInstance().reference
-        val getDataBahan = object : ValueEventListener {
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+
+        bahanRecyclerView = findViewById(R.id.bahan_recyclerview)
+        bahanRecyclerView.layoutManager = LinearLayoutManager(this)
+        bahanRecyclerView.setHasFixedSize(true)
+
+        bahanArrayList = arrayListOf<Bahan>()
+        getBahanData()
+    }
+
+    private fun getBahanData(){
+        dbref =  FirebaseDatabase.getInstance().getReference("BAHAN")
+
+        dbref.addValueEventListener(object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    for (bahanSnapshot in snapshot.children){
+                        val bahan = bahanSnapshot.getValue(Bahan::class.java)
+                        bahanArrayList.add(bahan!!)
+                    }
+
+                    bahanRecyclerView.adapter = BahanAdapter(bahanArrayList)
+                }
             }
 
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val result = StringBuilder()
-                for (i in snapshot.child("BAHAN").children) {
-                    val nama = i.child("nama").value
-                    val jumlah = i.child("jumlah").value
-                    result.append("Nama bahan : $nama\nJumlah : $jumlah\n\n")
-                }
-                val tvResult = findViewById<TextView>(R.id.tvResultDataBahan)
-                tvResult.text = result
+            override fun onCancelled(error: DatabaseError) {
+                print("Ada error di data bahan")
             }
-        }
-        database.addValueEventListener(getDataBahan)
-        database.addListenerForSingleValueEvent(getDataBahan)
+
+        })
     }
 }
