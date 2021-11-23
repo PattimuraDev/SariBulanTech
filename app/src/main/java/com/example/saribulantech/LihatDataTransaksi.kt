@@ -28,25 +28,29 @@ class LihatDataTransaksi : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val result = StringBuilder()
                 var year = calendar.get(Calendar.YEAR).toString().toInt()
-                for (i in snapshot.child("TRANSAKSI").children) {
+                val snapshotRef = snapshot.child("TRANSAKSI")
+                for (i in snapshotRef.children) {
                     while(year >= 2000){
-                        if(snapshot.child("TRANSAKSI").hasChild(year.toString())){
+                        if(snapshotRef.hasChild(year.toString())){
+                            val snapshotRefYear = snapshotRef.child(year.toString())
                             for(j in 11 downTo 0){
-                                if(i.hasChild(nameOfMonth[j])){
-                                    val bulanRef = i.child(nameOfMonth[j])
+                                if(snapshotRefYear.hasChild(nameOfMonth[j])){
+                                    val bulanRef = snapshotRefYear.child(nameOfMonth[j])
                                     val bulan = bulanRef.child("Bulan").value
                                     val namaPemesan = bulanRef.child("Nama pemesan").value
                                     val tanggalPemesanan = bulanRef.child("Tanggal pesanan").value
                                     val alamat = bulanRef.child("Alamat pengiriman").value
                                     val nominalTransaksi = bulanRef.child("Nominal transaksi").value
                                     val notes = bulanRef.child("Notes").value
+                                    val statusTransaksi = bulanRef.child("Status transaksi").value
                                     result.append("Tahun : $year\n" +
                                             "Bulan : $bulan\n" +
                                             "Nama pemesan : $namaPemesan\n" +
                                             "Tanggal pemesanan : $tanggalPemesanan\n" +
                                             "Alamat : $alamat\n" +
                                             "Nominal transaksi : $nominalTransaksi\n" +
-                                            "Notes : $notes\n\n")
+                                            "Notes : $notes\n" +
+                                            "Status transaksi : $statusTransaksi\n\n")
                                 }
                             }
                         }
