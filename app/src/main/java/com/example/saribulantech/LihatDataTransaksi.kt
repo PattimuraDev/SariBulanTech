@@ -2,11 +2,9 @@ package com.example.saribulantech
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
-import java.lang.StringBuilder
 import java.util.*
 
 class LihatDataTransaksi : AppCompatActivity() {
@@ -43,14 +41,14 @@ class LihatDataTransaksi : AppCompatActivity() {
                                 for(j in 11 downTo 0){
                                     if(snapshotRefYear.hasChild(nameOfMonth[j])){
                                         val bulanRef = snapshotRefYear.child(nameOfMonth[j])
-                                        val bulan = bulanRef.child("Bulan").value
-                                        val namaPemesan = bulanRef.child("Nama pemesan").value
-                                        val tanggalPemesanan = bulanRef.child("Tanggal pesanan").value
-                                        val alamat = bulanRef.child("Alamat pengiriman").value
-                                        val nominalTransaksi = bulanRef.child("Nominal transaksi").value
-                                        val notes = bulanRef.child("Notes").value
-                                        val statusTransaksi = bulanRef.child("Status transaksi").value
-                                        val transaksi = Transaksi(year, bulan, namaPemesan, tanggalPemesanan, alamat, nominalTransaksi, notes, statusTransaksi)
+                                        val bulan = bulanRef.child("Bulan").value.toString()
+                                        val namaPemesan = bulanRef.child("Nama pemesan").value.toString()
+                                        val tanggalPemesanan = bulanRef.child("Tanggal pesanan").value.toString()
+                                        val alamat = bulanRef.child("Alamat pengiriman").value.toString()
+                                        val nominalTransaksi = bulanRef.child("Nominal transaksi").value.toString()
+                                        val notes = bulanRef.child("Notes").value.toString()
+                                        val statusTransaksi = bulanRef.child("Status transaksi").value.toString()
+                                        val transaksi = Transaksi(year.toString(), bulan, namaPemesan, tanggalPemesanan, alamat, nominalTransaksi, notes, statusTransaksi)
                                         transaksiArrayList.add(transaksi)
                                     }
                                 }
