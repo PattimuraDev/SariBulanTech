@@ -18,12 +18,25 @@ class LihatDataTransaksi : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lihat_data_transaksi)
 
+        // actionbar
+        val actionbar = getSupportActionBar()
+        if (actionbar != null){
+            actionbar.title = "Lihat Data Transaksi"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+
         transaksiRecyclerView = findViewById(R.id.transaksi_recyclerview)
         transaksiRecyclerView.layoutManager = LinearLayoutManager(this)
         transaksiRecyclerView.setHasFixedSize(true)
 
         transaksiArrayList = arrayListOf<Transaksi>()
         getTransaksiData()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun getTransaksiData(){

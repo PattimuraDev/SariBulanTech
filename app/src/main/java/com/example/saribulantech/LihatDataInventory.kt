@@ -16,12 +16,24 @@ class LihatDataInventory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lihat_data_inventory)
 
+        // actionbar
+        val actionbar = getSupportActionBar()
+        if (actionbar != null){
+            actionbar.title = "Lihat Data Inventory"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
         inventoryRecyclerView = findViewById(R.id.inventory_recyclerview)
         inventoryRecyclerView.layoutManager = LinearLayoutManager(this)
         inventoryRecyclerView.setHasFixedSize(true)
 
         inventoryArrayList = arrayListOf<Inventory>()
         getInventoryData()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun getInventoryData(){

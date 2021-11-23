@@ -14,6 +14,14 @@ class TambahDataBahan : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tambah_data_bahan)
 
+        // actionbar
+        val actionbar = getSupportActionBar()
+        if (actionbar != null){
+            actionbar.title = "Tambah Data Bahan"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+
         val inputTambahNamaBahan = findViewById<EditText>(R.id.inputTambahNamaBahan)
         val inputTambahJumlahBahan = findViewById<EditText>(R.id.inputTambahJumlahBahan)
         val btnTambahDataBahan = findViewById<Button>(R.id.buttonTambahDataBahan)
@@ -38,4 +46,9 @@ class TambahDataBahan : AppCompatActivity() {
             }
         }
     }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
 }

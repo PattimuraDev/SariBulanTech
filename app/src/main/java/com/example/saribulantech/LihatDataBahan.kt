@@ -2,6 +2,7 @@ package com.example.saribulantech
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Window
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,13 @@ class LihatDataBahan : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lihat_data_bahan)
+        // actionbar
+        val actionbar = getSupportActionBar()
+        if (actionbar != null){
+            actionbar.title = "Lihat Data Bahan"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
 
         bahanRecyclerView = findViewById(R.id.bahan_recyclerview)
         bahanRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -22,6 +30,11 @@ class LihatDataBahan : AppCompatActivity() {
 
         bahanArrayList = arrayListOf<Bahan>()
         getBahanData()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun getBahanData(){
