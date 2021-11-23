@@ -19,7 +19,7 @@ class LihatDataTransaksi : AppCompatActivity() {
         setContentView(R.layout.activity_lihat_data_transaksi)
 
         // actionbar
-        val actionbar = getSupportActionBar()
+        val actionbar = supportActionBar
         if (actionbar != null){
             actionbar.title = "Lihat Data Transaksi"
             actionbar.setDisplayHomeAsUpEnabled(true)
@@ -54,31 +54,31 @@ class LihatDataTransaksi : AppCompatActivity() {
                                 for(j in 11 downTo 0){
                                     if(snapshotRefYear.hasChild(nameOfMonth[j])){
                                         val bulanRef = snapshotRefYear.child(nameOfMonth[j])
-                                        val bulan = bulanRef.child("Bulan").value.toString()
-                                        val namaPemesan = bulanRef.child("Nama pemesan").value.toString()
-                                        val tanggalPemesanan = bulanRef.child("Tanggal pesanan").value.toString()
-                                        val alamat = bulanRef.child("Alamat pengiriman").value.toString()
-                                        val nominalTransaksi = bulanRef.child("Nominal transaksi").value.toString()
-                                        val notes = bulanRef.child("Notes").value.toString()
-                                        val statusTransaksi = bulanRef.child("Status transaksi").value.toString()
-                                        val transaksi = Transaksi(year.toString(), bulan, namaPemesan, tanggalPemesanan, alamat, nominalTransaksi, notes, statusTransaksi)
-                                        transaksiArrayList.add(transaksi)
+                                        for(k in bulanRef.children){
+                                            if(k.exists()){
+                                                val bulan = k.child("Bulan").value.toString()
+                                                val namaPemesan = k.child("Nama pemesan").value.toString()
+                                                val tanggalPemesanan = k.child("Tanggal pesanan").value.toString()
+                                                val alamat = k.child("Alamat pengiriman").value.toString()
+                                                val nominalTransaksi = k.child("Nominal transaksi").value.toString()
+                                                val notes = k.child("Notes").value.toString()
+                                                val statusTransaksi = k.child("Status transaksi").value.toString()
+                                                val transaksi = Transaksi(year.toString(), bulan, namaPemesan, tanggalPemesanan, alamat, nominalTransaksi, notes, statusTransaksi)
+                                                transaksiArrayList.add(transaksi)
+                                            }
+                                        }
                                     }
                                 }
                             }
                             year--
                         }
-
                     }
-
                     transaksiRecyclerView.adapter = TransaksiAdapter(transaksiArrayList)
                 }
             }
-
             override fun onCancelled(error: DatabaseError) {
                 print("Ada error di data inventory")
             }
-
         })
     }
 }

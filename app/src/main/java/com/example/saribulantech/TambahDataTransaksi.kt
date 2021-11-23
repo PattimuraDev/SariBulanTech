@@ -49,7 +49,7 @@ class TambahDataTransaksi : AppCompatActivity() {
                 database = FirebaseDatabase.getInstance().getReference("TRANSAKSI")
                 val tahunRef = database.child(inputTambahTahunPemesanan.text.toString())
 
-                tahunRef.child(inputTambahBulanPemesanan.text.toString()).setValue(transaksi)
+                tahunRef.child(inputTambahBulanPemesanan.text.toString()).push().setValue(transaksi)
                     .addOnSuccessListener {
                         inputTambahNamaPemesan.text.clear()
                         inputTambahTanggalPemesanan.text.clear()
