@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateDataTransaksi">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/LinearLayout10"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama pemesan: "
+                android:textSize="10pt"
+                android:textStyle="bold"/>
+
+            <EditText
+                android:id="@+id/inputUpdateNamaPemesan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10pt"
+                android:inputType="text"
+                android:hint="Input nama pemesan"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayout11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/LinearLayout10">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal pemesanan (tanpa bulan dan tahun):"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputUpdateTanggalPemesanan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Input tanggal pemesanan"
+                android:inputType="text"
+                android:textSize="10pt" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayout12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/LinearLayout11">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bulan:"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputUpdateBulanPemesanan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Input bulan"
+                android:inputType="text"
+                android:textSize="10pt" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayout13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/LinearLayout12">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tahun:"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputUpdateTahunPemesanan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Input tahun"
+                android:inputType="text"
+                android:textSize="10pt" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayout14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/LinearLayout13">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Alamat pengiriman:"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputUpdateAlamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Input alamat"
+                android:inputType="text"
+                android:textSize="10pt" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayout15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/LinearLayout14">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Catatan:"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputUpdateCatatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Input catatan"
+                android:inputType="text"
+                android:textSize="10pt" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayout16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/LinearLayout15">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nominal transaksi:"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputUpdateNominalTransaksi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Input nominal transaksi"
+                android:inputType="text"
+                android:textSize="10pt" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/LinearLayout17"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/LinearLayout16">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status transaksi:"
+                android:textSize="10pt"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/inputUpdateStatusTransaksi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Input status transaksi"
+                android:inputType="text"
+                android:textSize="10pt" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/buttonUpdateDataTransaksi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="UPDATE"
+            android:backgroundTint="@color/button_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LinearLayout17" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
