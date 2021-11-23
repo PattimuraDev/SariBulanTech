@@ -34,21 +34,21 @@ class TambahDataTransaksi : AppCompatActivity() {
                 inputTambahNominal.text.toString().isNotEmpty() &&
                 inputTambahStatusTransaksi.text.toString().isNotEmpty()
             ) {
-
-                val transaksi = Transaksi(
-                    inputTambahTahunPemesanan.text.toString(),
-                    inputTambahBulanPemesanan.text.toString(),
-                    inputTambahNamaPemesan.text.toString(),
-                    (inputTambahTanggalPemesanan.text.toString() + " " +
+                val transaksi = mapOf<String, String>(
+                    "Nama pemesan" to inputTambahNamaPemesan.text.toString(),
+                    "Tanggal pesanan" to (inputTambahTanggalPemesanan.text.toString() + " " +
                             inputTambahBulanPemesanan.text.toString() + " " +
                             inputTambahTahunPemesanan.text.toString()),
-                    inputTambahAlamat.text.toString(),
-                    inputTambahNominal.text.toString(),
-                    inputTambahCatatan.text.toString(),
-                    inputTambahStatusTransaksi.text.toString()
+                    "Bulan" to inputTambahBulanPemesanan.text.toString(),
+                    "Tahun" to inputTambahTahunPemesanan.text.toString(),
+                    "Alamat pengiriman" to inputTambahAlamat.text.toString(),
+                    "Notes" to inputTambahCatatan.text.toString(),
+                    "Nominal transaksi" to inputTambahNominal.text.toString(),
+                    "Status transaksi" to inputTambahStatusTransaksi.text.toString()
                 )
                 database = FirebaseDatabase.getInstance().getReference("TRANSAKSI")
                 val tahunRef = database.child(inputTambahTahunPemesanan.text.toString())
+
                 tahunRef.child(inputTambahBulanPemesanan.text.toString()).setValue(transaksi)
                     .addOnSuccessListener {
                         inputTambahNamaPemesan.text.clear()
@@ -65,8 +65,8 @@ class TambahDataTransaksi : AppCompatActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
                     }.addOnFailureListener {
-                    Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
-                }
+                        Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
+                    }
             } else {
                 Toast.makeText(this, "Semua data harus diisi", Toast.LENGTH_SHORT).show()
             }

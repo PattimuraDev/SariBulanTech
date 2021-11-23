@@ -21,6 +21,7 @@
         <entry key="app/src/main/res/layout/activity_update_data_bahan.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_update_data_transaksi.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_bahan.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_transaksi.xml" value="0.1" />
       </map>
     </option>
   </component>
