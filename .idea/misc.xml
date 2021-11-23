@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_hapus_data_bahan.xml" value="0.30526315789473685" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_lihat_data_bahan.xml" value="0.3625" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_login.xml" value="0.30526315789473685" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_main_menu.xml" value="0.33" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_menu_bahan.xml" value="0.32894736842105265" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_menu_inventory.xml" value="0.30526315789473685" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_menu_transaksi.xml" value="0.30526315789473685" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_rv_lihat_data_bahan.xml" value="0.3625" />
         <entry key="app/src/main/res/layout/activity_hai.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_hapusdata_bahan.xml" value="0.22" />
         <entry key="app/src/main/res/layout/activity_lihat_data_bahan.xml" value="0.1" />
@@ -16,7 +24,6 @@
         <entry key="app/src/main/res/layout/activity_tambah_data_transaksi.xml" value="0.10005065856129686" />
         <entry key="app/src/main/res/layout/activity_tambahdata_inventory.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_update_data_bahan.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/item_bahan.xml" value="0.1" />
       </map>
     </option>
   </component>
