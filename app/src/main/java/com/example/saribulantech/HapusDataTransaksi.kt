@@ -28,6 +28,7 @@ class HapusDataTransaksi : AppCompatActivity() {
     }
 
     private fun hapusDataTransaksi(tahun : String, bulan : String) {
+
         database = FirebaseDatabase.getInstance().getReference("TRANSAKSI")
         database.get().addOnSuccessListener {
             if(it.exists()){
