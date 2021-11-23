@@ -15,8 +15,8 @@ class TambahDataBahan : AppCompatActivity() {
         setContentView(R.layout.activity_tambah_data_bahan)
 
         // actionbar
-        val actionbar = getSupportActionBar()
-        if (actionbar != null){
+        val actionbar = supportActionBar
+        if (actionbar != null) {
             actionbar.title = "Tambah Data Bahan"
             actionbar.setDisplayHomeAsUpEnabled(true)
             actionbar.setDisplayHomeAsUpEnabled(true)
@@ -27,25 +27,33 @@ class TambahDataBahan : AppCompatActivity() {
         val btnTambahDataBahan = findViewById<Button>(R.id.buttonTambahDataBahan)
 
         btnTambahDataBahan.setOnClickListener {
-            if(inputTambahNamaBahan.text.toString().isNotEmpty() && inputTambahJumlahBahan.text.toString().isNotEmpty()){
-                if(inputTambahJumlahBahan.text.toString().toInt() < 0){
+            if (inputTambahNamaBahan.text.toString()
+                    .isNotEmpty() && inputTambahJumlahBahan.text.toString().isNotEmpty()
+            ) {
+                if (inputTambahJumlahBahan.text.toString().toInt() < 0) {
                     Toast.makeText(this, "Jumlah tidak boleh negatif", Toast.LENGTH_SHORT).show()
-                }else{
-                    val bahan = Bahan(inputTambahNamaBahan.text.toString(), inputTambahJumlahBahan.text.toString())
+                } else {
+                    val bahan = Bahan(
+                        inputTambahNamaBahan.text.toString(),
+                        inputTambahJumlahBahan.text.toString()
+                    )
                     database = FirebaseDatabase.getInstance().getReference("BAHAN")
-                    database.child(inputTambahNamaBahan.text.toString()).setValue(bahan).addOnSuccessListener {
-                        inputTambahNamaBahan.text.clear()
-                        inputTambahJumlahBahan.text.clear()
-                        Toast.makeText(this, "Bahan berhasil ditambahkan", Toast.LENGTH_SHORT).show()
-                    }.addOnFailureListener {
+                    database.child(inputTambahNamaBahan.text.toString()).setValue(bahan)
+                        .addOnSuccessListener {
+                            inputTambahNamaBahan.text.clear()
+                            inputTambahJumlahBahan.text.clear()
+                            Toast.makeText(this, "Bahan berhasil ditambahkan", Toast.LENGTH_SHORT)
+                                .show()
+                        }.addOnFailureListener {
                         Toast.makeText(this, "Gagal disimpan", Toast.LENGTH_SHORT).show()
                     }
                 }
-            }else{
+            } else {
                 Toast.makeText(this, "Nama dan jumlah bahan harus ada", Toast.LENGTH_SHORT).show()
             }
         }
     }
+
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

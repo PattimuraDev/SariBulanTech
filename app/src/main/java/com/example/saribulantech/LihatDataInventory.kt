@@ -2,23 +2,21 @@ package com.example.saribulantech
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
-import java.lang.StringBuilder
 
 class LihatDataInventory : AppCompatActivity() {
-    private lateinit var dbref : DatabaseReference
-    private lateinit var inventoryRecyclerView : RecyclerView
-    private lateinit var inventoryArrayList : ArrayList<Inventory>
+    private lateinit var dbref: DatabaseReference
+    private lateinit var inventoryRecyclerView: RecyclerView
+    private lateinit var inventoryArrayList: ArrayList<Inventory>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lihat_data_inventory)
 
         // actionbar
-        val actionbar = getSupportActionBar()
-        if (actionbar != null){
+        val actionbar = supportActionBar
+        if (actionbar != null) {
             actionbar.title = "Lihat Data Inventory"
             actionbar.setDisplayHomeAsUpEnabled(true)
             actionbar.setDisplayHomeAsUpEnabled(true)
@@ -36,13 +34,13 @@ class LihatDataInventory : AppCompatActivity() {
         return true
     }
 
-    private fun getInventoryData(){
-        dbref =  FirebaseDatabase.getInstance().getReference("INVENTORY")
+    private fun getInventoryData() {
+        dbref = FirebaseDatabase.getInstance().getReference("INVENTORY")
 
-        dbref.addValueEventListener(object: ValueEventListener{
+        dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
-                    for (inventorySnapshot in snapshot.children){
+                if (snapshot.exists()) {
+                    for (inventorySnapshot in snapshot.children) {
                         val inventory = inventorySnapshot.getValue(Inventory::class.java)
                         inventoryArrayList.add(inventory!!)
                     }

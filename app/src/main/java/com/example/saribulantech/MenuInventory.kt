@@ -11,7 +11,7 @@ class MenuInventory : AppCompatActivity() {
         setContentView(R.layout.activity_menu_inventory)
 
         val tambahDataInventory = findViewById<TextView>(R.id.TambahDataInventory)
-        val updateDataInventory  = findViewById<TextView>(R.id.UpdateDataInventory)
+        val updateDataInventory = findViewById<TextView>(R.id.UpdateDataInventory)
         val lihatDataInventory = findViewById<TextView>(R.id.LihatDataInventory)
         val hapusDataInventory = findViewById<TextView>(R.id.HapusDataInventory)
 

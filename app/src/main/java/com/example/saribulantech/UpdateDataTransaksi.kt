@@ -5,11 +5,10 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 class UpdateDataTransaksi : AppCompatActivity() {
-    private lateinit var database : DatabaseReference
+    private lateinit var database: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_data_transaksi)
@@ -25,35 +24,40 @@ class UpdateDataTransaksi : AppCompatActivity() {
         val btnUpdateDataTransaksi = findViewById<Button>(R.id.buttonUpdateDataTransaksi)
 
         btnUpdateDataTransaksi.setOnClickListener {
-            if(inputUpdateNamaPemesan.text.toString().isNotEmpty() &&
+            if (inputUpdateNamaPemesan.text.toString().isNotEmpty() &&
                 inputUpdateTanggalPemesanan.text.toString().isNotEmpty() &&
                 inputUpdateBulanPemesanan.text.toString().isNotEmpty() &&
                 inputUpdateTahunPemesanan.text.toString().isNotEmpty() &&
                 inputUpdateAlamat.text.toString().isNotEmpty() &&
                 inputUpdateCatatan.text.toString().isNotEmpty() &&
                 inputUpdateNominal.text.toString().isNotEmpty() &&
-                inputUpdateStatusTransaksi.text.toString().isNotEmpty()){
+                inputUpdateStatusTransaksi.text.toString().isNotEmpty()
+            ) {
 
-                    updateDataTransaksi(inputUpdateNamaPemesan.text.toString(),
-                            (inputUpdateTanggalPemesanan.text.toString() + " " +
-                                    inputUpdateBulanPemesanan.text.toString() + " " +
-                                    inputUpdateTahunPemesanan.text.toString()),
-                            inputUpdateBulanPemesanan.text.toString(),
-                            inputUpdateTahunPemesanan.text.toString(),
-                            inputUpdateAlamat.text.toString(),
-                            inputUpdateCatatan.text.toString(),
-                            inputUpdateNominal.text.toString(),
-                            inputUpdateStatusTransaksi.text.toString())
+                updateDataTransaksi(
+                    inputUpdateNamaPemesan.text.toString(),
+                    (inputUpdateTanggalPemesanan.text.toString() + " " +
+                            inputUpdateBulanPemesanan.text.toString() + " " +
+                            inputUpdateTahunPemesanan.text.toString()),
+                    inputUpdateBulanPemesanan.text.toString(),
+                    inputUpdateTahunPemesanan.text.toString(),
+                    inputUpdateAlamat.text.toString(),
+                    inputUpdateCatatan.text.toString(),
+                    inputUpdateNominal.text.toString(),
+                    inputUpdateStatusTransaksi.text.toString()
+                )
 
-            }else{
+            } else {
                 Toast.makeText(this, "Semua data harus diisi", Toast.LENGTH_SHORT).show()
             }
         }
 
     }
 
-    private fun updateDataTransaksi(namaPemesan:String, tanggal:String, bulan:String, tahun:String,
-    alamat:String, catatan:String, nominal:String, statusTransaksi:String) {
+    private fun updateDataTransaksi(
+        namaPemesan: String, tanggal: String, bulan: String, tahun: String,
+        alamat: String, catatan: String, nominal: String, statusTransaksi: String
+    ) {
         database = FirebaseDatabase.getInstance().getReference("TRANSAKSI")
         val transaksiUpdate = mapOf<String, String>(
             "Nama pemesan" to namaPemesan,
@@ -65,11 +69,30 @@ class UpdateDataTransaksi : AppCompatActivity() {
             "Nominal transaksi" to nominal,
             "Status transaksi" to statusTransaksi
         )
+        var key = ""
+        database.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()) {
+                    if (snapshot.hasChild(tahun)) {
+                        if (snapshot.child(tahun).hasChild(bulan)) {
+                            for (i in snapshot.child(tahun).child(bulan).children) {
+                                if (i.exists() && i.child("Nama pemesan").value.toString() == namaPemesan) {
+                                    key = i.key!!
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
         database.get().addOnSuccessListener {
-            if(it.exists()){
-                if(it.hasChild(tahun)){
-                    val tahunRef = database.child(tahun)
-                    tahunRef.child(bulan).updateChildren(transaksiUpdate).addOnSuccessListener {
+            if (it.exists()) {
+                if (it.hasChild(tahun)) {
+                    val bulanRef = database.child(tahun).child(bulan)
+                    bulanRef.child(key).updateChildren(transaksiUpdate).addOnSuccessListener {
                         findViewById<EditText>(R.id.inputUpdateNamaPemesan).text.clear()
                         findViewById<EditText>(R.id.inputUpdateTanggalPemesanan).text.clear()
                         findViewById<EditText>(R.id.inputUpdateBulanPemesanan).text.clear()
@@ -82,10 +105,10 @@ class UpdateDataTransaksi : AppCompatActivity() {
                     }.addOnFailureListener {
                         Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
                     }
-                }else{
+                } else {
                     Toast.makeText(this, "Data tidak ada", Toast.LENGTH_SHORT).show()
                 }
-            }else{
+            } else {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
             }
         }

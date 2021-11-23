@@ -5,17 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-class InventoryAdapter(private val inventoryList : ArrayList<Inventory>) : RecyclerView.Adapter<InventoryAdapter.ViewHolder>(){
-     class ViewHolder(itemView: View):
-            RecyclerView.ViewHolder(itemView){
-                var itemNama : TextView
-                var itemJumlah : TextView
 
-                init{
-                    itemNama = itemView.findViewById(R.id.tv_nama)
-                    itemJumlah = itemView.findViewById(R.id.tv_jumlah)
-                }
-            }
+class InventoryAdapter(private val inventoryList: ArrayList<Inventory>) :
+    RecyclerView.Adapter<InventoryAdapter.ViewHolder>() {
+    class ViewHolder(itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
+        var itemNama: TextView = itemView.findViewById(R.id.tv_nama)
+        var itemJumlah: TextView = itemView.findViewById(R.id.tv_jumlah)
+    }
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val v = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.item_bahan, viewGroup, false)

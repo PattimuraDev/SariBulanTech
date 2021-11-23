@@ -18,9 +18,9 @@ class HapusDataBahan : AppCompatActivity() {
         val inputHapusNamaBahan = findViewById<EditText>(R.id.inputHapusNamaBahan)
 
         btnHapusDataBahan.setOnClickListener {
-            if(inputHapusNamaBahan.text.toString().isNotEmpty()){
+            if (inputHapusNamaBahan.text.toString().isNotEmpty()) {
                 hapusBahan(inputHapusNamaBahan.text.toString())
-            }else{
+            } else {
                 Toast.makeText(this, "Nama bahan harus ada", Toast.LENGTH_SHORT).show()
             }
         }
@@ -29,18 +29,18 @@ class HapusDataBahan : AppCompatActivity() {
     private fun hapusBahan(namaBahan: String) {
         database = FirebaseDatabase.getInstance().getReference("BAHAN")
         database.get().addOnSuccessListener {
-            if(it.exists()){
-                if(it.hasChild(namaBahan)){
+            if (it.exists()) {
+                if (it.hasChild(namaBahan)) {
                     database.child(namaBahan).removeValue().addOnSuccessListener {
                         findViewById<EditText>(R.id.inputHapusNamaBahan).text.clear()
                         Toast.makeText(this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show()
                     }.addOnFailureListener {
                         Toast.makeText(this, "Gagal", Toast.LENGTH_SHORT).show()
                     }
-                }else{
+                } else {
                     Toast.makeText(this, "Bahan $namaBahan tidak ada", Toast.LENGTH_SHORT).show()
                 }
-            }else{
+            } else {
                 Toast.makeText(this, "Eror", Toast.LENGTH_SHORT).show()
             }
         }
