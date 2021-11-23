@@ -18,5 +18,8 @@ class MenuTransaksi : AppCompatActivity() {
         lihatDataTransaksi.setOnClickListener {
             startActivity(Intent(this, LihatDataTransaksi::class.java))
         }
+        hapusDataTransaksi.setOnClickListener {
+            startActivity(Intent(this, HapusDataTransaksi::class.java))
+        }
     }
 }

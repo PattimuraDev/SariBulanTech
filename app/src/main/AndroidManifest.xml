@@ -5,13 +5,14 @@
     <application
         android:allowBackup="true"
         android:fullBackupContent="true"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/logonofont"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SariBulanTech">
         <activity
             android:name=".HapusDataTransaksi"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".LihatDataTransaksi"
