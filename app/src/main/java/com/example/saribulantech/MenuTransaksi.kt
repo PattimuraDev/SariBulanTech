@@ -21,5 +21,8 @@ class MenuTransaksi : AppCompatActivity() {
         hapusDataTransaksi.setOnClickListener {
             startActivity(Intent(this, HapusDataTransaksi::class.java))
         }
+        updateDataTransaksi.setOnClickListener {
+            startActivity(Intent(this, UpdateDataTransaksi::class.java))
+        }
     }
 }

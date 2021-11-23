@@ -11,9 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SariBulanTech">
         <activity
+            android:name=".UpdateDataTransaksi"
+            android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".HapusDataTransaksi"
-            android:screenOrientation="portrait"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".LihatDataTransaksi"
             android:exported="false"
