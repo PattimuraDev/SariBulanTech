@@ -31,12 +31,12 @@ class TransaksiAdapter(private val transaksiList: ArrayList<Transaksi>) :
 
         holder.itemTahun.text = currentItem.year.toString()
         /*holder.itemBulan.text = currentItem.bulan.toString()*/
-        holder.itemNamaPemesan.text = currentItem.namaPemesan.toString()
-        holder.itemTanggalPemesanan.text = currentItem.tanggalPemesanan.toString()
-        holder.itemAlamat.text = currentItem.alamat.toString()
-        holder.itemNominalTransaksi.text = currentItem.nominalTransaksi.toString()
-        holder.itemNote.text = currentItem.notes.toString()
-        holder.itemStatusTransaksi.text = currentItem.statusTransaksi.toString()
+        holder.itemNamaPemesan.text = ("Nama: " + currentItem.namaPemesan.toString())
+        holder.itemTanggalPemesanan.text = ("Tanggal: " + currentItem.tanggalPemesanan.toString())
+        holder.itemAlamat.text = ("Alamat: " + currentItem.alamat.toString())
+        holder.itemNominalTransaksi.text = ("Nominal transaksi: " + currentItem.nominalTransaksi.toString())
+        holder.itemNote.text = ("Catatan: " + currentItem.notes.toString())
+        holder.itemStatusTransaksi.text = ("Status transaksi: " + currentItem.statusTransaksi.toString())
 
     }
 
