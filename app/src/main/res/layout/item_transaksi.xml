@@ -13,7 +13,7 @@
     app:cardElevation="20dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="344dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:orientation="vertical"
@@ -21,15 +21,10 @@
 
         <TextView
             android:id="@+id/tv_tahun"
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="12pt" />
-
-        <TextView
-            android:id="@+id/tv_bulan"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:fontFamily="@font/sui_generis"
+            android:padding="3dp"
             android:textColor="@color/black"
             android:textSize="12pt" />
 
@@ -37,42 +32,48 @@
             android:id="@+id/tv_nama_pemesan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="3dp"
             android:textColor="@color/black"
-            android:textSize="12pt" />
+            android:textSize="10pt" />
 
         <TextView
             android:id="@+id/tv_tanggal_pemesanan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="3dp"
             android:textColor="@color/black"
-            android:textSize="12pt" />
+            android:textSize="10pt" />
 
         <TextView
             android:id="@+id/tv_alamat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="3dp"
             android:textColor="@color/black"
-            android:textSize="12pt" />
+            android:textSize="10pt" />
 
         <TextView
             android:id="@+id/tv_nominal_transaksi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="3dp"
             android:textColor="@color/black"
-            android:textSize="12pt" />
+            android:textSize="10pt" />
 
         <TextView
             android:id="@+id/tv_note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="3dp"
             android:textColor="@color/black"
-            android:textSize="12pt" />
+            android:textSize="10pt" />
 
         <TextView
             android:id="@+id/tv_status_transaksi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="3dp"
             android:textColor="@color/black"
-            android:textSize="12pt" />
+            android:textSize="10pt" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>

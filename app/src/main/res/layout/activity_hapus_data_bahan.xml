@@ -5,35 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HapusDataBahan">
+
     <LinearLayout
         android:id="@+id/LinearLayout6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nama bahan: "
-            android:textSize="10pt"
-            android:textStyle="bold"/>
+            android:textColor="@color/black"
+            android:textSize="12pt"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/inputHapusNamaBahan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="10pt"
+            android:hint="Input nama bahan"
             android:inputType="text"
-            android:hint="Input nama bahan"/>
+            android:textSize="10pt" />
     </LinearLayout>
+
     <Button
         android:id="@+id/buttonHapusDataBahan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="213dp"
+        android:layout_height="60dp"
         android:layout_marginTop="50dp"
-        android:text="HAPUS DATA"
+        android:background="@drawable/roundedtanpagradient"
         android:backgroundTint="@color/button_color"
+        android:text="HAPUS BAHAN"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LinearLayout6" />

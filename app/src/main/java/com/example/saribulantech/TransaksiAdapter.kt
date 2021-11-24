@@ -11,7 +11,7 @@ class TransaksiAdapter(private val transaksiList: ArrayList<Transaksi>) :
     class ViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
         var itemTahun: TextView = itemView.findViewById(R.id.tv_tahun)
-        var itemBulan: TextView = itemView.findViewById(R.id.tv_bulan)
+        //var itemBulan: TextView = itemView.findViewById(R.id.tv_bulan)
         var itemNamaPemesan: TextView = itemView.findViewById(R.id.tv_nama_pemesan)
         var itemTanggalPemesanan: TextView = itemView.findViewById(R.id.tv_tanggal_pemesanan)
         var itemAlamat: TextView = itemView.findViewById(R.id.tv_alamat)
@@ -30,7 +30,7 @@ class TransaksiAdapter(private val transaksiList: ArrayList<Transaksi>) :
         val currentItem = transaksiList[position]
 
         holder.itemTahun.text = currentItem.year.toString()
-        holder.itemBulan.text = currentItem.bulan.toString()
+        /*holder.itemBulan.text = currentItem.bulan.toString()*/
         holder.itemNamaPemesan.text = currentItem.namaPemesan.toString()
         holder.itemTanggalPemesanan.text = currentItem.tanggalPemesanan.toString()
         holder.itemAlamat.text = currentItem.alamat.toString()
