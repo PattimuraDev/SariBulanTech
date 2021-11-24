@@ -10,13 +10,18 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/LinearLayout"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="4dp"
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama Bahan: "
-            android:textSize="10pt"
-            android:textStyle="bold"/>
+            android:text="Nama Bahan"
+            android:textColor="@color/black"
+            android:textSize="12pt"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/inputTambahNamaBahan"
@@ -26,18 +31,22 @@
             android:inputType="text"
             android:hint="Input nama bahan"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/LinearLayout">
+        android:paddingLeft="20dp"
+        app:layout_constraintTop_toBottomOf="@id/LinearLayout"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jumlah(kg): "
-            android:textSize="10pt"
+            android:text="Jumlah (kg) "
+            android:textColor="@color/black"
+            android:textSize="12pt"
             android:textStyle="bold" />
 
         <EditText
@@ -51,11 +60,13 @@
 
     <Button
         android:id="@+id/buttonTambahDataBahan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="213dp"
+        android:layout_height="60dp"
         android:layout_marginTop="50dp"
-        android:text="TAMBAH"
+        android:background="@drawable/roundedtanpagradient"
         android:backgroundTint="@color/button_color"
+        android:text="TAMBAH"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LinearLayout1" />

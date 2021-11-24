@@ -11,14 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="4dp"
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama inventory: "
+            android:text="Nama inventory"
+            android:textColor="@color/black"
             android:textSize="10pt"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/inputTambahNamaInventory"
@@ -34,12 +38,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/LinearLayout">
+        app:layout_constraintTop_toBottomOf="@id/LinearLayout"
+        android:paddingLeft="20dp"
+        android:paddingBottom="20dp"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jumlah(biji): "
+            android:text="Jumlah (biji)"
+            android:textColor="@color/black"
             android:textSize="10pt"
             android:textStyle="bold" />
 
@@ -54,11 +62,14 @@
 
     <Button
         android:id="@+id/buttonTambahDatainventory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="TAMBAH"
+        android:layout_width="161dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/roundedtanpagradient"
         android:backgroundTint="@color/button_color"
+        android:layout_marginBottom="50dp"
+        android:text="TAMBAH"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LinearLayout1" />

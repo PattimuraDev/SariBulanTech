@@ -9,12 +9,18 @@
         <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_hapus_data_bahan.xml" value="0.30526315789473685" />
         <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_hapus_data_inventory.xml" value="0.30526315789473685" />
         <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_hapus_data_transaksi.xml" value="0.30526315789473685" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_lihat_data_bahan.xml" value="0.30526315789473685" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_lihat_data_inventory.xml" value="0.30526315789473685" />
         <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_lihat_data_transaksi.xml" value="0.30526315789473685" />
         <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_main_menu.xml" value="0.33" />
         <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_menu_bahan.xml" value="0.30526315789473685" />
         <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_menu_inventory.xml" value="0.33" />
         <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_menu_transaksi.xml" value="0.30526315789473685" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_tambah_data_bahan.xml" value="0.30526315789473685" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_tambah_data_transaksi.xml" value="0.30526315789473685" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_tambahdata_inventory.xml" value="0.30526315789473685" />
+        <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_update_data_bahan.xml" value="0.30526315789473685" />
         <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/activity_update_data_transaksi.xml" value="0.30526315789473685" />
         <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/item_bahan.xml" value="0.30526315789473685" />
         <entry key="..\:/Tugas/PSI/SariBulanTech/app/src/main/res/layout/item_inventory.xml" value="0.30526315789473685" />

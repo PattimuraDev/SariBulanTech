@@ -18,10 +18,10 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bulan: "
+            android:text="Bulan "
             android:textColor="@color/black"
             android:textSize="12pt"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/inputBulanHapusLaporan"
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:text="Tahun: "
+            android:text="Tahun"
             android:textColor="@color/black"
             android:textSize="12pt"
             android:textStyle="bold" />
