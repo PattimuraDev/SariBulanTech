@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".MainMenu"
-        android:background="@color/background_header">
+        android:background="@drawable/gradient">
 
         <TextView
             android:id="@+id/textView3"
@@ -19,7 +19,7 @@
             android:layout_marginTop="36dp"
             android:fontFamily="@font/sui_generis"
             android:text="Saribulan.tech"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="12pt"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,10 +40,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:background="@color/background_main_menu"
             android:paddingLeft="15dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textColor="@color/white"
             android:text="Main Menu"
             android:textSize="10pt"
             android:textStyle="bold"
@@ -120,16 +120,24 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/background_main_menu"
             android:paddingLeft="15dp"
             android:id="@+id/textView"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:text="Grafik Keuangan"
+            android:textColor="@color/white"
             android:textSize="10pt"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bahan" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/chart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            android:orientation="horizontal"
+            android:background="@color/white">
         <com.github.mikephil.charting.charts.LineChart
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -137,5 +145,6 @@
             android:minHeight="500dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView"/>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
