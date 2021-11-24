@@ -9,14 +9,18 @@
         android:id="@+id/LinearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nama inventory: "
-            android:textSize="10pt"
+            android:textColor="@color/black"
+            android:textSize="12pt"
             android:textStyle="bold"/>
 
         <EditText
@@ -29,11 +33,13 @@
     </LinearLayout>
     <Button
         android:id="@+id/buttonHapusDatainventory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="213dp"
+        android:layout_height="60dp"
         android:layout_marginTop="50dp"
-        android:text="HAPUS DATA"
+        android:background="@drawable/roundedtanpagradient"
         android:backgroundTint="@color/button_color"
+        android:text="HAPUS INVENTORY"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LinearLayout4" />
