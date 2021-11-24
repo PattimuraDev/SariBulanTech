@@ -118,18 +118,17 @@
                 android:textSize="10pt"/>
         </LinearLayout>
 
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@color/background_main_menu"-->
-<!--            android:paddingLeft="15dp"-->
-<!--            android:id="@+id/textView"-->
-<!--            android:paddingTop="5dp"-->
-<!--            android:paddingBottom="5dp"-->
-<!--            android:text="Grafik Keuangan"-->
-<!--            android:textSize="10pt"-->
-<!--            android:textStyle="bold"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/bahan" />-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_main_menu"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Grafik Keuangan"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bahan" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
