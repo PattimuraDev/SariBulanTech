@@ -14,6 +14,14 @@ class HapusDataBahan : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hapus_data_bahan)
 
+        // actionbar
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            actionbar.title = "Hapus Data Bahan"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+
         val btnHapusDataBahan = findViewById<Button>(R.id.buttonHapusDataBahan)
         val inputHapusNamaBahan = findViewById<EditText>(R.id.inputHapusNamaBahan)
 
@@ -44,5 +52,9 @@ class HapusDataBahan : AppCompatActivity() {
                 Toast.makeText(this, "Eror", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

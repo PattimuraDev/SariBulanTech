@@ -14,6 +14,14 @@ class MenuBahan : AppCompatActivity() {
         val lihatDataBahan = findViewById<TextView>(R.id.LihatDataBahan)
         val hapusdataBahan = findViewById<TextView>(R.id.HapusDataBahan)
 
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            actionbar.title = "Menu Bahan"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+
+
         tambahDataBahan.setOnClickListener {
             val intent = Intent(this, TambahDataBahan::class.java)
             startActivity(intent)
@@ -30,5 +38,10 @@ class MenuBahan : AppCompatActivity() {
             val intent = Intent(this, LihatDataBahan::class.java)
             startActivity(intent)
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

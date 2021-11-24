@@ -13,6 +13,14 @@ class UpdateDataTransaksi : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_data_transaksi)
 
+        // actionbar
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            actionbar.title = "Update Data Transaksi"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+
         val inputUpdateNamaPemesan = findViewById<EditText>(R.id.inputUpdateNamaPemesan)
         val inputUpdateTanggalPemesanan = findViewById<EditText>(R.id.inputUpdateTanggalPemesanan)
         val inputUpdateBulanPemesanan = findViewById<EditText>(R.id.inputUpdateBulanPemesanan)
@@ -112,5 +120,9 @@ class UpdateDataTransaksi : AppCompatActivity() {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

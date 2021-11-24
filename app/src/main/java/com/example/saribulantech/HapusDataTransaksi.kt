@@ -14,6 +14,14 @@ class HapusDataTransaksi : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hapus_data_transaksi)
 
+        // actionbar
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            actionbar.title = "Hapus Data Transaksi"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+
         val inputBulanHapusLaporan = findViewById<EditText>(R.id.inputBulanHapusLaporan)
         val inputTahunHapusLaporan = findViewById<EditText>(R.id.inputTahunHapusLaporan)
         val btnHapusDataTransaksi = findViewById<Button>(R.id.buttonHapusDataTransaksi)
@@ -52,5 +60,10 @@ class HapusDataTransaksi : AppCompatActivity() {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

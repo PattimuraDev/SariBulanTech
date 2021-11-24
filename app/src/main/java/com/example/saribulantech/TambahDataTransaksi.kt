@@ -14,6 +14,14 @@ class TambahDataTransaksi : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tambah_data_transaksi)
 
+        // actionbar
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            actionbar.title = "Tambah Data Transaksi"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+
         val inputTambahNamaPemesan = findViewById<EditText>(R.id.inputTambahNamaPemesan)
         val inputTambahTanggalPemesanan = findViewById<EditText>(R.id.inputTambahTanggalPemesanan)
         val inputTambahBulanPemesanan = findViewById<EditText>(R.id.inputTambahBulanPemesanan)
@@ -71,5 +79,9 @@ class TambahDataTransaksi : AppCompatActivity() {
                 Toast.makeText(this, "Semua data harus diisi", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

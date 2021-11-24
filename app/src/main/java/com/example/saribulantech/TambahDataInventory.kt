@@ -14,6 +14,14 @@ class TambahDataInventory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tambahdata_inventory)
 
+        // actionbar
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            actionbar.title = "Tambah Data Inventory"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+
         val inputTambahNamaInventory = findViewById<EditText>(R.id.inputTambahNamaInventory)
         val inputTambahJumlahInventory = findViewById<EditText>(R.id.inputTambahJumlahInventory)
         val btnTambahdataInventory = findViewById<Button>(R.id.buttonTambahDatainventory)
@@ -48,5 +56,9 @@ class TambahDataInventory : AppCompatActivity() {
             }
 
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

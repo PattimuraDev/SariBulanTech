@@ -15,6 +15,14 @@ class UpdateDataInventory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_data_inventory)
 
+        // actionbar
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            actionbar.title = "Update Data Inventory"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+
         val btnUpdateDataInventory = findViewById<Button>(R.id.buttonUpdateDatainventory)
         val inputUpdateNamaInventory = findViewById<EditText>(R.id.inputUpdateNamaInventory)
         val inputUpdatejumlahInventory = findViewById<EditText>(R.id.inputUpdateJumlahInventory)
@@ -70,5 +78,10 @@ class UpdateDataInventory : AppCompatActivity() {
             }
         }
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

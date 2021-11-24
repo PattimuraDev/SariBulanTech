@@ -10,6 +10,14 @@ class MenuInventory : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu_inventory)
 
+        // actionbar
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            actionbar.title = "Menu Inventory"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+
         val tambahDataInventory = findViewById<TextView>(R.id.TambahDataInventory)
         val updateDataInventory = findViewById<TextView>(R.id.UpdateDataInventory)
         val lihatDataInventory = findViewById<TextView>(R.id.LihatDataInventory)
@@ -27,5 +35,10 @@ class MenuInventory : AppCompatActivity() {
         lihatDataInventory.setOnClickListener {
             startActivity(Intent(this, LihatDataInventory::class.java))
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

@@ -13,6 +13,15 @@ class HapusDataInventory : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hapus_data_inventory)
+
+        // actionbar
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            actionbar.title = "Hapus Data Inventory"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+
         val btnHapusDataInventory = findViewById<Button>(R.id.buttonHapusDatainventory)
         val inputHapusNamaInventory = findViewById<EditText>(R.id.inputHapusNamaInventory)
         btnHapusDataInventory.setOnClickListener {
@@ -45,5 +54,10 @@ class HapusDataInventory : AppCompatActivity() {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

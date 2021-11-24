@@ -14,6 +14,14 @@ class UpdateDataBahan : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_data_bahan)
 
+        // actionbar
+        val actionbar = supportActionBar
+        if (actionbar != null) {
+            actionbar.title = "Update Data Bahan"
+            actionbar.setDisplayHomeAsUpEnabled(true)
+            actionbar.setDisplayHomeAsUpEnabled(true)
+        }
+
         val btnUpdateDataBahan = findViewById<Button>(R.id.buttonUpdateDataBahan)
         val inputUpdateNamaBahan = findViewById<EditText>(R.id.inputUpdateNamaBahan)
         val inputUpdateJumlahBahan = findViewById<EditText>(R.id.inputUpdateJumlahBahan)
@@ -61,5 +69,9 @@ class UpdateDataBahan : AppCompatActivity() {
                 Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
