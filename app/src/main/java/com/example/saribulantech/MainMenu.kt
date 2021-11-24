@@ -26,7 +26,6 @@ class MainMenu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
         supportActionBar?.hide()
-
         val btnTransaksi = findViewById<LinearLayout>(R.id.transaksi)
         val btnInventory = findViewById<LinearLayout>(R.id.inventory)
         val btnBahan = findViewById<LinearLayout>(R.id.bahan)
@@ -50,6 +49,7 @@ class MainMenu : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().getReference("TRANSAKSI")
         val year = calendar.get(Calendar.YEAR).toString()
         val pendapatanSetahunList = ArrayList<Entry>()
+        val naikTurunPendapatanSetahunList = ArrayList<Entry>()
 
         database.addValueEventListener(object:ValueEventListener{
             override fun onCancelled(error: DatabaseError) {
@@ -61,6 +61,7 @@ class MainMenu : AppCompatActivity() {
                     if(snapshot.hasChild(year)){
                         var pendapatanSebulan = 0F
                         var indeks = 0F
+                        var pendapatanBulanSebelumnya = 0F
                         for(i in 0..11){
                             if(snapshot.child(year).hasChild(nameOfMonth[i])){
                                 val monthRef = snapshot.child(year).child(nameOfMonth[i])
@@ -69,19 +70,28 @@ class MainMenu : AppCompatActivity() {
                                         pendapatanSebulan+=j.child("Nominal transaksi").value.toString().toFloat()
                                     }
                                 }
+                                naikTurunPendapatanSetahunList.add(Entry(indeks, pendapatanSebulan - pendapatanBulanSebelumnya))
                                 pendapatanSetahunList.add(Entry(indeks, pendapatanSebulan))
 
                                 indeks+=1F
+                                pendapatanBulanSebelumnya = pendapatanSebulan
                                 pendapatanSebulan = 0F
                             }
                         }
                         //
                         val pendapatanSetahunLineDataSet = LineDataSet(pendapatanSetahunList, "Pendapatan")
+                        val naikTurunPendapatanSetahunLineDataset = LineDataSet(naikTurunPendapatanSetahunList, "Naik Turun")
                         pendapatanSetahunLineDataSet.mode = LineDataSet.Mode.CUBIC_BEZIER
                         pendapatanSetahunLineDataSet.color = Color.BLUE
                         pendapatanSetahunLineDataSet.circleRadius = 5f
                         pendapatanSetahunLineDataSet.setCircleColor(Color.BLUE)
                         pendapatanSetahunLineDataSet.setDrawFilled(true)
+
+                        naikTurunPendapatanSetahunLineDataset.mode = LineDataSet.Mode.CUBIC_BEZIER
+                        naikTurunPendapatanSetahunLineDataset.color = Color.RED
+                        naikTurunPendapatanSetahunLineDataset.circleRadius = 5f
+                        naikTurunPendapatanSetahunLineDataset.setCircleColor(Color.RED)
+                        naikTurunPendapatanSetahunLineDataset.setDrawFilled(true)
 
                         val lineChart = findViewById<LineChart>(R.id.lineChart)
                         val legend = lineChart.legend
@@ -93,7 +103,10 @@ class MainMenu : AppCompatActivity() {
 
                         lineChart.description.isEnabled = false
                         lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
-                        lineChart.data = LineData(pendapatanSetahunLineDataSet)
+                        val linedata = LineData()
+                        linedata.addDataSet(pendapatanSetahunLineDataSet)
+                        linedata.addDataSet(naikTurunPendapatanSetahunLineDataset)
+                        lineChart.data = linedata
                         lineChart.animateXY(100, 500)
 
                         var bulan = ArrayList<String>()
