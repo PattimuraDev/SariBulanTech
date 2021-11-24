@@ -10,4 +10,14 @@
     <color name="background_header">#959595</color>
     <color name="background_main_menu">#DADADA</color>
     <color name="button_color">#008FB3</color>
+    <color name="krem">#FBCD6F</color>
+    <color name="krem_lebih_gelap">#DAAC5F</color>
+    <color name="coklat_terang">#9D8420</color>
+    <color name="merah_crimson">#942911</color>
+    <color name="coklat_liver">#593837</color>
+    <color name="krem_tombol_login">#e8b54d</color>
+    <color name="dark_blue">#005bea</color>
+    <color name="nice_blue">#6f86d6</color>
+    <color name="dark_black_blue">#330867</color>
+
 </resources>

@@ -9,6 +9,7 @@ class MainMenu : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
+        getSupportActionBar()?.hide()
 
         val btnTransaksi = findViewById<LinearLayout>(R.id.transaksi)
         val btnInventory = findViewById<LinearLayout>(R.id.inventory)

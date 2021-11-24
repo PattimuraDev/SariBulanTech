@@ -14,6 +14,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="95dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded"
             android:orientation="horizontal">
 
             <ImageView
@@ -31,7 +35,7 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="32dp"
                 android:text="Tambah data bahan"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="11pt"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -39,6 +43,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="95dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded"
             android:orientation="horizontal">
 
             <ImageView
@@ -51,12 +59,12 @@
 
             <TextView
                 android:id="@+id/UpdateDataBahan"
-                android:layout_width="280dp"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="32dp"
                 android:text="Update data bahan"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="11pt"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -64,6 +72,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="95dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded"
             android:orientation="horizontal">
 
             <ImageView
@@ -76,12 +88,12 @@
 
             <TextView
                 android:id="@+id/LihatDataBahan"
-                android:layout_width="280dp"
+                android:layout_width="242dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="32dp"
                 android:text="Lihat data bahan"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="11pt"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -89,6 +101,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="95dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded"
             android:orientation="horizontal">
 
             <ImageView
@@ -101,12 +117,12 @@
 
             <TextView
                 android:id="@+id/HapusDataBahan"
-                android:layout_width="280dp"
+                android:layout_width="243dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="32dp"
                 android:text="Hapus data bahan"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="11pt"
                 android:textStyle="bold" />
         </LinearLayout>
