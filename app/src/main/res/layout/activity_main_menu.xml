@@ -117,17 +117,25 @@
                 android:textStyle="bold"
                 android:textSize="10pt"/>
         </LinearLayout>
-<!--        <TextView-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:background="@color/background_main_menu"-->
-<!--            android:paddingLeft="15dp"-->
-<!--            android:paddingTop="5dp"-->
-<!--            android:paddingBottom="5dp"-->
-<!--            android:text="Grafik Keuangan"-->
-<!--            android:textSize="10pt"-->
-<!--            android:textStyle="bold"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/bahan" />-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/background_main_menu"
+            android:paddingLeft="15dp"
+            android:id="@+id/textView"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:text="Grafik Keuangan"
+            android:textSize="10pt"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bahan" />
+        <com.github.mikephil.charting.charts.LineChart
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/lineChart"
+            android:minHeight="500dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textView"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

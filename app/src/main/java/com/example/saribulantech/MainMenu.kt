@@ -1,16 +1,31 @@
 package com.example.saribulantech
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
+import com.github.mikephil.charting.charts.LineChart
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.google.firebase.database.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainMenu : AppCompatActivity() {
-
+    private lateinit var database : DatabaseReference
+    private val calendar = Calendar.getInstance()
+    private val nameOfMonth = arrayOf(
+        "Januari", "Februari", "Maret", "April", "Mei", "Juni",
+        "Juli", "Agustus", "September", "Oktober", "November", "Desember"
+    )
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
-        getSupportActionBar()?.hide()
+        supportActionBar?.hide()
 
         val btnTransaksi = findViewById<LinearLayout>(R.id.transaksi)
         val btnInventory = findViewById<LinearLayout>(R.id.inventory)
@@ -27,95 +42,80 @@ class MainMenu : AppCompatActivity() {
         btnBahan.setOnClickListener {
             startActivity(Intent(this, MenuBahan::class.java))
         }
+
+        createLineChart()
     }
 
-//    private fun createBarChart() {
-//        database = FirebaseDatabase.getInstance().getReference("TRANSAKSI")
-//        var pJanuari = 0F
-//        var pFebruari = 0F
-//        var pMaret = 0F
-//        var pApril = 0F
-//        var pMei = 0F
-//        var pJuni = 0F
-//        var pJuli = 0F
-//        var pAgustus = 0F
-//        var pSeptember = 0F
-//        var pOktober = 0F
-//        var pNovember = 0F
-//        var pDesember = 0F
-//        database.addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                val year = calendar.get(Calendar.YEAR).toString().toInt()
-//                if (snapshot.exists()) {
-//                    if (snapshot.hasChild(year.toString())) {
-//                        val snapshotRefYear = snapshot.child(year.toString())
-//                        for (j in 11 downTo 0) {
-//                            if (snapshotRefYear.hasChild(nameOfMonth[j])) {
-//                                val snapshotRefMonth = snapshotRefYear.child(nameOfMonth[j])
-//                                for (k in snapshotRefMonth.children) {
-//                                    if (k.exists()) {
-//                                        val nominalTransaksi =
-//                                            k.child("Nominal transaksi").value.toString().toFloat()
-//                                        if (snapshotRefMonth.key!! == "Januari") {
-//                                            pJanuari += nominalTransaksi
-//                                        } else if (snapshotRefMonth.key!! == "Februari") {
-//                                            pFebruari += nominalTransaksi
-//                                        } else if (snapshotRefMonth.key!! == "Maret") {
-//                                            pMaret += nominalTransaksi
-//                                        } else if (snapshotRefMonth.key!! == "April") {
-//                                            pApril += nominalTransaksi
-//                                        } else if (snapshotRefMonth.key!! == "Mei") {
-//                                            pMei += nominalTransaksi
-//                                        } else if (snapshotRefMonth.key!! == "Juni") {
-//                                            pJuni += nominalTransaksi
-//                                        } else if (snapshotRefMonth.key!! == "Juli") {
-//                                            pJuli += nominalTransaksi
-//                                        } else if (snapshotRefMonth.key!! == "Agustus") {
-//                                            pAgustus += nominalTransaksi
-//                                        } else if (snapshotRefMonth.key!! == "September") {
-//                                            pSeptember += nominalTransaksi
-//                                        } else if (snapshotRefMonth.key!! == "Oktober") {
-//                                            pOktober += nominalTransaksi
-//                                        } else if (snapshotRefMonth.key!! == "November") {
-//                                            pNovember += nominalTransaksi
-//                                        } else if (snapshotRefMonth.key!! == "Desember") {
-//                                            pDesember += nominalTransaksi
-//                                        }
-//                                    }
-//                                }
-//
-//                            }
-//                        }
-//                    }
-//
-//                }
-//
-//            }
-//
-//            override fun onCancelled(error: DatabaseError) {
-//                TODO("Not yet implemented")
-//            }
-//        })
-//        barList = ArrayList()
-//        barList.add(BarEntry(1F, pJanuari))
-//        barList.add(BarEntry(2f, pFebruari))
-//        barList.add(BarEntry(3f, pMaret))
-//        barList.add(BarEntry(4f, pApril))
-//        barList.add(BarEntry(5f, pMei))
-//        barList.add(BarEntry(6f, pJuni))
-//        barList.add(BarEntry(7f, pJuli))
-//        barList.add(BarEntry(8f, pAgustus))
-//        barList.add(BarEntry(9f, pSeptember))
-//        barList.add(BarEntry(10f, pOktober))
-//        barList.add(BarEntry(11f, pNovember))
-//        barList.add(BarEntry(12f, pDesember))
-//
-//        barDataSet = BarDataSet(barList, "Pendapatan")
-//        barData = BarData(barDataSet)
-//        barChart.data = barData
-//        barDataSet.setColors(ColorTemplate.JOYFUL_COLORS, 250)
-//        barDataSet.valueTextColor = Color.BLACK
-//        barDataSet.valueTextSize = 12f
-//        barChart.invalidate()
-//    }
+    private fun createLineChart() {
+        database = FirebaseDatabase.getInstance().getReference("TRANSAKSI")
+        val year = calendar.get(Calendar.YEAR).toString()
+        val pendapatanSetahunList = ArrayList<Entry>()
+
+        database.addValueEventListener(object:ValueEventListener{
+            override fun onCancelled(error: DatabaseError) {
+
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    if(snapshot.hasChild(year)){
+                        var pendapatanSebulan = 0F
+                        var indeks = 0F
+                        for(i in 0..11){
+                            if(snapshot.child(year).hasChild(nameOfMonth[i])){
+                                val monthRef = snapshot.child(year).child(nameOfMonth[i])
+                                for(j in monthRef.children){
+                                    if(j.exists()){
+                                        pendapatanSebulan+=j.child("Nominal transaksi").value.toString().toFloat()
+                                    }
+                                }
+                                pendapatanSetahunList.add(Entry(indeks, pendapatanSebulan))
+
+                                indeks+=1F
+                                pendapatanSebulan = 0F
+                            }
+                        }
+                        //
+                        val pendapatanSetahunLineDataSet = LineDataSet(pendapatanSetahunList, "Pendapatan")
+                        pendapatanSetahunLineDataSet.mode = LineDataSet.Mode.CUBIC_BEZIER
+                        pendapatanSetahunLineDataSet.color = Color.BLUE
+                        pendapatanSetahunLineDataSet.circleRadius = 5f
+                        pendapatanSetahunLineDataSet.setCircleColor(Color.BLUE)
+                        pendapatanSetahunLineDataSet.setDrawFilled(true)
+
+                        val lineChart = findViewById<LineChart>(R.id.lineChart)
+                        val legend = lineChart.legend
+                        legend.isEnabled = true
+                        legend.verticalAlignment = Legend.LegendVerticalAlignment.TOP
+                        legend.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER
+                        legend.orientation = Legend.LegendOrientation.HORIZONTAL
+                        legend.setDrawInside(false)
+
+                        lineChart.description.isEnabled = false
+                        lineChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
+                        lineChart.data = LineData(pendapatanSetahunLineDataSet)
+                        lineChart.animateXY(100, 500)
+
+                        var bulan = ArrayList<String>()
+                        bulan.add("1")
+                        bulan.add("2")
+                        bulan.add("3")
+                        bulan.add("4")
+                        bulan.add("5")
+                        bulan.add("6")
+                        bulan.add("7")
+                        bulan.add("8")
+                        bulan.add("9")
+                        bulan.add("10")
+                        bulan.add("11")
+                        bulan.add("12")
+                        val bulanFormatted = AxisFormatter(bulan.toArray(arrayOfNulls<String>(bulan.size)))
+                        lineChart.xAxis?.valueFormatter = bulanFormatted
+                        lineChart.xAxis.textSize = 10f
+                        lineChart.invalidate()
+                    }
+                }
+            }
+        })
+    }
 }
