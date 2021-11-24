@@ -12,7 +12,8 @@
         android:theme="@style/Theme.SariBulanTech">
         <activity
             android:name=".TambahDataTransaksi"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".UpdateDataTransaksi"
             android:exported="false"
