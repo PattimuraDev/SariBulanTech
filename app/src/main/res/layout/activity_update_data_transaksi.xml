@@ -13,13 +13,17 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:id="@+id/LinearLayout10"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginTop="4dp"
+            android:padding="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="0dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama pemesan: "
+                android:text="Nama pemesan"
                 android:textSize="10pt"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/inputUpdateNamaPemesan"
@@ -33,41 +37,58 @@
             android:id="@+id/LinearLayout11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingBottom="20dp"
             app:layout_constraintTop_toBottomOf="@id/LinearLayout10">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tanggal pemesanan (tanpa bulan dan tahun):"
+                android:text="Tanggal pemesanan"
                 android:textSize="10pt"
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="352dp"
+                android:layout_height="wrap_content"
+                android:text="(tanpa bulan dan tahun)"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="7pt"
                 android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/inputUpdateTanggalPemesanan"
-                android:layout_width="match_parent"
+                android:layout_width="354dp"
                 android:layout_height="wrap_content"
                 android:hint="Input tanggal pemesanan"
                 android:inputType="text"
                 android:textSize="10pt" />
+
         </LinearLayout>
         <LinearLayout
             android:id="@+id/LinearLayout12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingBottom="20dp"
             app:layout_constraintTop_toBottomOf="@id/LinearLayout11">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bulan:"
+                android:text="Bulan"
                 android:textSize="10pt"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/inputUpdateBulanPemesanan"
-                android:layout_width="match_parent"
+                android:layout_width="351dp"
                 android:layout_height="wrap_content"
                 android:hint="Input bulan"
                 android:inputType="text"
@@ -77,19 +98,23 @@
             android:id="@+id/LinearLayout13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingBottom="20dp"
             app:layout_constraintTop_toBottomOf="@id/LinearLayout12">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Tahun:"
+                android:text="Tahun"
                 android:textSize="10pt"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/inputUpdateTahunPemesanan"
-                android:layout_width="match_parent"
+                android:layout_width="349dp"
                 android:layout_height="wrap_content"
                 android:hint="Input tahun"
                 android:inputType="text"
@@ -99,19 +124,23 @@
             android:id="@+id/LinearLayout14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingBottom="20dp"
             app:layout_constraintTop_toBottomOf="@id/LinearLayout13">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alamat pengiriman:"
+                android:text="Alamat pengiriman"
                 android:textSize="10pt"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/inputUpdateAlamat"
-                android:layout_width="match_parent"
+                android:layout_width="349dp"
                 android:layout_height="wrap_content"
                 android:hint="Input alamat"
                 android:inputType="text"
@@ -121,19 +150,23 @@
             android:id="@+id/LinearLayout15"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingBottom="20dp"
             app:layout_constraintTop_toBottomOf="@id/LinearLayout14">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Catatan:"
+                android:text="Catatan"
                 android:textSize="10pt"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/inputUpdateCatatan"
-                android:layout_width="match_parent"
+                android:layout_width="352dp"
                 android:layout_height="wrap_content"
                 android:hint="Input catatan"
                 android:inputType="text"
@@ -143,19 +176,23 @@
             android:id="@+id/LinearLayout16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingBottom="20dp"
             app:layout_constraintTop_toBottomOf="@id/LinearLayout15">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nominal transaksi:"
+                android:text="Nominal transaksi"
                 android:textSize="10pt"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/inputUpdateNominalTransaksi"
-                android:layout_width="match_parent"
+                android:layout_width="349dp"
                 android:layout_height="wrap_content"
                 android:hint="Input nominal transaksi"
                 android:inputType="text"
@@ -165,19 +202,23 @@
             android:id="@+id/LinearLayout17"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingBottom="20dp"
             app:layout_constraintTop_toBottomOf="@id/LinearLayout16">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Status transaksi:"
+                android:text="Status transaksi"
                 android:textSize="10pt"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"/>
 
             <EditText
                 android:id="@+id/inputUpdateStatusTransaksi"
-                android:layout_width="match_parent"
+                android:layout_width="354dp"
                 android:layout_height="wrap_content"
                 android:hint="Input status transaksi"
                 android:inputType="text"
@@ -185,11 +226,15 @@
         </LinearLayout>
         <Button
             android:id="@+id/buttonUpdateDataTransaksi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="UPDATE"
+            android:layout_width="161dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/roundedtanpagradient"
             android:backgroundTint="@color/button_color"
+            android:layout_marginBottom="50dp"
+            android:text="UPDATE"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/LinearLayout17" />

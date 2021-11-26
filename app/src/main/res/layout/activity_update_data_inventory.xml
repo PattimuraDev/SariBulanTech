@@ -10,14 +10,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="4dp"
+        android:padding="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nama: "
+            android:text="Nama"
             android:textSize="10pt"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/inputUpdateNamaInventory"
@@ -32,19 +36,23 @@
         android:id="@+id/LinearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingBottom="20dp"
         app:layout_constraintTop_toBottomOf="@id/LinearLayout2">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jumlah(biji): "
+            android:text="Jumlah(biji)"
             android:textSize="10pt"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
 
         <EditText
             android:id="@+id/inputUpdateJumlahInventory"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:hint="Input jumlah inventory"
             android:inputType="text"
@@ -53,12 +61,17 @@
 
     <Button
         android:id="@+id/buttonUpdateDatainventory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Update"
+        android:layout_width="161dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/roundedtanpagradient"
         android:backgroundTint="@color/button_color"
+        android:text="UPDATE"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LinearLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/LinearLayout3"
+        app:layout_constraintVertical_bias="0.063" />
 </androidx.constraintlayout.widget.ConstraintLayout>

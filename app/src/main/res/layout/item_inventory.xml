@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:text="Nama    : "
                 android:textColor="@color/black"
-                android:textSize="12pt"
+                android:textSize="10pt"
                 tools:textStyle="bold" />
 
             <TextView
@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="Jumlah : "
                 android:textColor="@color/black"
-                android:textSize="12pt"
+                android:textSize="10pt"
                 tools:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
